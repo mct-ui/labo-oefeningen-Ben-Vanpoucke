@@ -2,6 +2,22 @@
   #FONTS
 \*------------------------------------*/
 
+@font-face{
+    font-family: "ClearSans";
+    font-weight: 200;
+    src: url("../fonts/ClearSans-Light-webfont.woff") format("woff");
+}
+@font-face{
+    font-family: "ClearSans";
+    font-weight: 400;
+    src: url("../fonts/ClearSans-Regular-webfont.woff") format("woff");
+}
+@font-face{
+    font-family: "ClearSans";
+    font-weight: 600;
+    src: url("../fonts/ClearSans-Medium-webfont.woff") format("woff");
+}
+
 /*------------------------------------*\
   #GENERIC
 \*------------------------------------*/
@@ -13,14 +29,20 @@
 */
 
 html {
-    font-size: 16px;
-    line-height: 24px;
-    font-family: Helvetica, arial, sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 200;
+    font-family: ClearSans, Helvetica, arial, sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
+body{
+    background-color: #0A257D;
+    background: linear-gradient(to right bottom, #0A257D , #061649) fixed;
+    background-attachment: fixed;
+    color:white;
+}
 *,
 *:before,
 *:after {
@@ -146,7 +168,7 @@ hr {
 }
 
 a {
-    color: #1195F7;
+    color: white;
     transition: all .1s ease-in-out;
 }
 
@@ -157,6 +179,9 @@ a:focus {
     color: #8EC7FF;
 }
 
+p{
+    max-width: 32em;
+}
 /*------------------------------------*\
   #OBJECTS
 \*------------------------------------*/
@@ -205,7 +230,8 @@ a:focus {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 56.4em; /* 56.4 * 20px = 1128px */
+    /* max-width: 56.4em; /* /* 56.4 * 20px = 1128px */
+    max-width: 71em; /* 1278 / 18 = 71*/
 }
 
 /*
@@ -366,7 +392,168 @@ a:focus {
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+.c-logo{
+    height: 32px;
+}
 
+.c-logo__symbol
+{
+    height: inherit;
+}
+
+
+/*
+    Component: button
+    ---
+    button of the website
+*/
+
+.c-button-cta
+{
+    Display: inline-block;
+    Line-height: 24px;
+    Padding: 16px ;/* 56 height -->24 line height --> (56-24)/2 */
+    background-color: #033AA7;  
+    text-decoration: none;
+    box-shadow: 0 0 0 1px rgba(142,199,255,.2), 0 0 10px rgba(17,149,255,0.3);
+    text-transform: uppercase;
+
+    /* belangrijk voor de knop te laten veranderen van kleur*/
+    background: linear-gradient(to right bottom, #033AA7 , #0053FB); 
+    background-size: 200% auto; 
+    transition: 0.5s; 
+}
+
+.c-button-cta:hover
+{
+    background-position: right bottom; 
+    color:white;
+}
+/*
+    Component: header
+    ---
+    Main header of the website
+*/
+
+
+@media (min-width: 992px) {
+    .c-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+
+    }
+
+    .c-header__nav {
+        display: block;      
+        
+    }
+}
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+.c-nav--meta {
+    font-size:16px;
+}
+
+
+
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 400;
+    padding: 8px 0;
+    display: block;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #ffffff;
+    text-shadow: 0 0 10px #8EC7FF;
+}
+
+
+
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active{
+    color: #ffffff;
+}
+
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #DBEDFF;
+
+
+}
+
+
+@media (min-width: 768px) {
+    .c-nav__list {
+        display: -webkit-flex;
+        display:-ms-flexbox;
+        display: flex;
+        margin: 0 -16px;
+    }
+
+    .c-nav__link {
+        padding:8px 16px;
+    }
+}
+/*  components: image figcaption
+    ---
+    figcaption to image
+*/
+.c-image-figcaption__figcaption
+{
+    margin:0;
+
+    background-color: #ffffff;
+    border-left: 8px solid #0053FB;
+    color:#000000; 
+    padding:16px;
+    font-weight: 400;
+}
+
+@media (min-width: 576px) {
+.c-image-figcaption
+{
+    position: relative;
+    
+    
+}
+.c-image-figcaption__image
+{
+    width:100%;
+    
+    
+}
+.c-image-figcaption__figcaption
+{
+    
+    position: absolute;
+    top:8px;
+    right: 8px; 
+    height: 64px;
+    width:260px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 0; 
+    border-right: 8px solid #0053FB;
+
+
+}
+}
 /*------------------------------------*\
   #UTILITIES
 \*------------------------------------*/
@@ -377,8 +564,9 @@ a:focus {
     Utility classes to put specific colors onto elements
 */
 
-.u-color-secondary-base {
-}
+/* .u-color-secondary-base {
+
+} */
 
 /*
     Utilities: spacing
